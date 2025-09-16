@@ -1,0 +1,82 @@
+cff-version: 1.2.0
+title: ACRO
+version: 0.4.9
+doi: 10.5281/zenodo.15793559
+date-released: 2025-07-02
+license: MIT
+repository-code: https://github.com/AI-SDC/ACRO
+languages:
+  - English
+keywords:
+  - data privacy
+  - data protection
+  - privacy
+  - privacy tools
+  - statistical disclosure control
+  - statistical software
+authors:
+  - family-names: Preen
+    given-names: Richard John
+    orcid: https://orcid.org/0000-0003-3351-8132
+    affiliation: University of the West of England
+  - family-names: Smith
+    given-names: Jim
+    orcid: https://orcid.org/0000-0001-7908-1859
+    affiliation: University of the West of England
+  - family-names: Albashir
+    given-names: Maha
+    affiliation: University of the West of England
+  - family-names: Davy
+    given-names: Simon
+    affiliation: University of Oxford
+    orcid: https://orcid.org/0000-0001-9890-3619
+  - family-names: Migenda
+    given-names: Jost
+    affiliation: King’s College London
+    orcid: https://orcid.org/0000-0002-5350-8049
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.7273903
+    description: This DOI represents all versions, and will always resolve to the latest one.
+  - type: doi
+    value: 10.5281/zenodo.7273904
+    description: This is the archived snapshot of ACRO v.0.0.5.
+  - type: doi
+    value: 10.5281/zenodo.7834104
+    description: This is the archived snapshot of ACRO v.0.0.6.
+  - type: doi
+    value: 10.5281/zenodo.7875920
+    description: This is the archived snapshot of ACRO v.0.1.0.
+  - type: doi
+    value: 10.5281/zenodo.8091731
+    description: This is the archived snapshot of ACRO v.0.2.0.
+  - type: doi
+    value: 10.5281/zenodo.8113670
+    description: This is the archived snapshot of ACRO v.0.3.0.
+  - type: doi
+    value: 10.5281/zenodo.8134819
+    description: This is the archived snapshot of ACRO v.0.4.0.
+  - type: doi
+    value: 10.5281/zenodo.8143786
+    description: This is the archived snapshot of ACRO v.0.4.2.
+  - type: doi
+    value: 10.5281/zenodo.8370642
+    description: This is the archived snapshot of ACRO v.0.4.3.
+  - type: doi
+    value: 10.5281/zenodo.8143758
+    description: This is the archived snapshot of ACRO v.0.4.4.
+  - type: doi
+    value: 10.5281/zenodo.10142370
+    description: This is the archived snapshot of ACRO v.0.4.5.
+  - type: doi
+    value: 10.5281/zenodo.12535291
+    description: This is the archived snapshot of ACRO v.0.4.6.
+  - type: doi
+    value: 10.5281/zenodo.13970111
+    description: This is the archived snapshot of ACRO v0.4.7.
+  - type: doi
+    value: 10.5281/zenodo.14765345
+    description: This is the archived snapshot of ACRO v0.4.8.
+  - type: doi
+    value: 10.5281/zenodo.15793559
+    description: This is the archived snapshot of ACRO v0.4.9.

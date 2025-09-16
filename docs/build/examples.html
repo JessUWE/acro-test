@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Examples &#8212; ACRO 0.4.9 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=22ca553c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=ebe9904d"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Start" href="examples/quickstart.html" />
+    <link rel="prev" title="Configuration" href="user_guide/configuration.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ACRO 0.4.9 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="introduction.html">
+    Welcome to ACRO
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API Reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="acro.html">
+    ACRO Module
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sacro_ml.html">
+    SACRO-ML
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="acro_r.html">
+    ACRO-R
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sacro_viewer.html">
+    SACRO-Viewer
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="introduction.html">
+    Welcome to ACRO
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="acro.html">
+    ACRO Module
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sacro_ml.html">
+    SACRO-ML
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="acro_r.html">
+    ACRO-R
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sacro_viewer.html">
+    SACRO-Viewer
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_workflow.html">Basic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/configuration.html">Configuration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Analysis Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="examples/cross_tabulation.html">Cross-tabulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/statistical_modeling.html">Statistical Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/data_visualization.html">Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/summary_statistics.html">Summary Statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="examples/custom_disclosure_checks.html">Custom Disclosure Checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/batch_processing.html">Batch Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/integration_workflows.html">Integration Workflows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Language-Specific Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="examples/python_notebooks.html">Python Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/r_workflows.html">R Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/stata_integration.html">Stata Integration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="examples/ml_privacy_assessment.html">ML Privacy Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/safe_model_export.html">Safe Model Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/differential_privacy_training.html">Differential Privacy Training</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Output Checking</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="examples/sacro_viewer_tutorial.html">SACRO-Viewer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/reviewer_workflows.html">Reviewer Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/tre_integration.html">TRE Integration</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
+<p>This section provides comprehensive examples and tutorials for using the ACRO family of tools.</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/quickstart.html#core-acro-class">Core ACRO Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/quickstart.html#essential-methods">Essential Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/quickstart.html#quick-workflow">Quick Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/quickstart.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_workflow.html">Basic Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/basic_workflow.html#acro-session-management">ACRO Session Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/basic_workflow.html#output-management">Output Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/basic_workflow.html#workflow-best-practices">Workflow Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/basic_workflow.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/configuration.html#basic-configuration">Basic Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/configuration.html#environment-specific-settings">Environment-Specific Settings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Analysis Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/cross_tabulation.html">Cross-tabulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#basic-cross-tabulation">Basic Cross-tabulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#cross-tabulation-with-margins">Cross-tabulation with Margins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#aggregated-cross-tabulation">Aggregated Cross-tabulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#multi-dimensional-cross-tabulation">Multi-dimensional Cross-tabulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#handling-suppressed-values">Handling Suppressed Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#complete-example-with-output-management">Complete Example with Output Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#key-parameters">Key Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/cross_tabulation.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/statistical_modeling.html">Statistical Modeling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#linear-regression-example">Linear Regression Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#array-based-linear-regression">Array-based Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#logistic-regression-example">Logistic Regression Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#probit-regression-example">Probit Regression Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#model-comparison-example">Model Comparison Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#complete-modeling-workflow">Complete Modeling Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#model-interpretation">Model Interpretation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/statistical_modeling.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/data_visualization.html">Data Visualization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#safe-histogram-example">Safe Histogram Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#survival-analysis-visualization">Survival Analysis Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#survival-table-example">Survival Table Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#custom-visualization-workflow">Custom Visualization Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#multiple-visualization-example">Multiple Visualization Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#best-practices-for-safe-visualization">Best Practices for Safe Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#visualization-types-supported">Visualization Types Supported</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/data_visualization.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/summary_statistics.html">Summary Statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/summary_statistics.html#tabular-summary-methods">Tabular Summary Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/summary_statistics.html#output-management-for-custom-statistics">Output Management for Custom Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/summary_statistics.html#working-with-external-statistics">Working with External Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/summary_statistics.html#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/custom_disclosure_checks.html">Custom Disclosure Checks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/custom_disclosure_checks.html#configuration-management">Configuration Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/custom_disclosure_checks.html#advanced-output-control">Advanced Output Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/custom_disclosure_checks.html#configuration-parameters">Configuration Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/custom_disclosure_checks.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/batch_processing.html">Batch Processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/batch_processing.html#batch-output-management">Batch Output Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/batch_processing.html#batch-processing-strategies">Batch Processing Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/batch_processing.html#utility-functions">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/batch_processing.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/integration_workflows.html">Integration Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/integration_workflows.html#coming-soon">Coming Soon</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Language-Specific Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/python_notebooks.html">Python Notebooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/python_notebooks.html#available-notebooks">Available Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/python_notebooks.html#running-the-notebooks">Running the Notebooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/r_workflows.html">R Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/r_workflows.html#basic-r-workflow">Basic R Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/r_workflows.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/stata_integration.html">Stata Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/stata_integration.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/stata_integration.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/stata_integration.html#coming-soon">Coming Soon</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/ml_privacy_assessment.html">ML Privacy Assessment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/ml_privacy_assessment.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/ml_privacy_assessment.html#key-concepts">Key Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/ml_privacy_assessment.html#sacro-ml-integration">SACRO-ML Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/ml_privacy_assessment.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/ml_privacy_assessment.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/safe_model_export.html">Safe Model Export</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/safe_model_export.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/safe_model_export.html#key-components">Key Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/safe_model_export.html#sacro-ml-integration">SACRO-ML Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/safe_model_export.html#installation-and-usage">Installation and Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/safe_model_export.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/safe_model_export.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/differential_privacy_training.html">Differential Privacy Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#core-concepts">Core Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#training-techniques">Training Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#utility-privacy-trade-offs">Utility-Privacy Trade-offs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#framework-integration">Framework Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#implementation-guidelines">Implementation Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#installation-and-usage">Installation and Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#evaluation-and-validation">Evaluation and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/differential_privacy_training.html#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Output Checking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/sacro_viewer_tutorial.html">SACRO-Viewer Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#interface-overview">Interface Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#review-process">Review Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#batch-processing">Batch Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#integration-features">Integration Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sacro_viewer_tutorial.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/reviewer_workflows.html">Reviewer Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#standard-review-procedures">Standard Review Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#batch-review-workflows">Batch Review Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#quality-assurance">Quality Assurance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#specialized-workflows">Specialized Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#multi-stage-review-process">Multi-Stage Review Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#reviewer-training-and-development">Reviewer Training and Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#continuous-improvement">Continuous Improvement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#integration-with-research-workflows">Integration with Research Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#technology-integration">Technology Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/reviewer_workflows.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/tre_integration.html">TRE Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#common-tre-platforms">Common TRE Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#automated-workflow-setup">Automated Workflow Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#configuration-management">Configuration Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#compliance-and-audit">Compliance and Audit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#performance-optimization">Performance Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#monitoring-and-maintenance">Monitoring and Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/tre_integration.html#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="interactive-notebooks">
+<h2>Interactive Notebooks<a class="headerlink" href="#interactive-notebooks" title="Link to this heading">#</a></h2>
+<section id="python-jupyter-notebooks">
+<h3>Python Jupyter Notebooks<a class="headerlink" href="#python-jupyter-notebooks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="_static/test.nb.html">Basic ACRO Tutorial</a> - Introduction to ACRO with the charities dataset</p></li>
+<li><p><a class="reference external" href="_static/test-nursery.nb.html">Advanced Analysis</a> - Complex analysis with the nursery dataset</p></li>
+</ul>
+</section>
+<section id="r-notebooks">
+<h3>R Notebooks<a class="headerlink" href="#r-notebooks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ai-sdc.github.io/ACRO/_static/test.nb.html">ACRO-R Quickstart</a> - Getting started with ACRO in R</p></li>
+<li><p><a class="reference external" href="https://ai-sdc.github.io/ACRO/_static/test-nursery.nb.html">Statistical Modeling in R</a> - Advanced R workflows</p></li>
+</ul>
+</section>
+</section>
+<section id="video-tutorials">
+<h2>Video Tutorials<a class="headerlink" href="#video-tutorials" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://drive.google.com/drive/folders/1z5zKuZdiNth0c7CLBt3vDEyhGwSIocw_">ACRO Installation and Setup</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/drive/folders/1z5zKuZdiNth0c7CLBt3vDEyhGwSIocw_">Basic Data Analysis Workflow</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/drive/folders/1z5zKuZdiNth0c7CLBt3vDEyhGwSIocw_">Output Checking with SACRO-Viewer</a></p></li>
+</ul>
+</section>
+<section id="example-datasets">
+<h2>Example Datasets<a class="headerlink" href="#example-datasets" title="Link to this heading">#</a></h2>
+<p>The following datasets are available for testing and learning:</p>
+<section id="charities-dataset">
+<h3>Charities Dataset<a class="headerlink" href="#charities-dataset" title="Link to this heading">#</a></h3>
+<p>A synthetic dataset containing information about charitable organizations, including:</p>
+<ul class="simple">
+<li><p>Organization details (name, type, region)</p></li>
+<li><p>Financial information (income, expenditure)</p></li>
+<li><p>Activity classifications</p></li>
+</ul>
+<p><strong>Usage</strong>: Ideal for learning cross-tabulation and basic statistical analysis</p>
+</section>
+<section id="nursery-dataset">
+<h3>Nursery Dataset<a class="headerlink" href="#nursery-dataset" title="Link to this heading">#</a></h3>
+<p>A classification dataset for nursery school applications, featuring:</p>
+<ul class="simple">
+<li><p>Categorical variables (parents, has_nurs, form, children, housing, finance, social, health)</p></li>
+<li><p>Target variable (spec_prior, priority, not_recom)</p></li>
+</ul>
+<p><strong>Usage</strong>: Perfect for machine learning and classification examples</p>
+</section>
+</section>
+<section id="sample-code-repository">
+<h2>Sample Code Repository<a class="headerlink" href="#sample-code-repository" title="Link to this heading">#</a></h2>
+<p>All example code is available in the <a class="reference external" href="https://github.com/AI-SDC/ACRO-Examples">ACRO Examples Repository</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone examples repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/AI-SDC/ACRO-Examples.git
+<span class="nb">cd</span><span class="w"> </span>ACRO-Examples
+
+<span class="c1"># Install requirements</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># Run Jupyter notebooks</span>
+jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+</section>
+<section id="common-use-cases">
+<h2>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading">#</a></h2>
+<section id="research-workflow-examples">
+<h3>Research Workflow Examples<a class="headerlink" href="#research-workflow-examples" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Exploratory Data Analysis</strong></p>
+<ul class="simple">
+<li><p>Safe data exploration and summarization</p></li>
+<li><p>Identifying patterns while protecting privacy</p></li>
+<li><p>Generating publication-ready tables</p></li>
+</ul>
+</li>
+<li><p><strong>Statistical Modeling</strong></p>
+<ul class="simple">
+<li><p>Regression analysis with disclosure control</p></li>
+<li><p>Model comparison and selection</p></li>
+<li><p>Coefficient interpretation and reporting</p></li>
+</ul>
+</li>
+<li><p><strong>Machine Learning Projects</strong></p>
+<ul class="simple">
+<li><p>Privacy-preserving model training</p></li>
+<li><p>Safe model evaluation and comparison</p></li>
+<li><p>Secure model deployment</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="tre-integration-examples">
+<h3>TRE Integration Examples<a class="headerlink" href="#tre-integration-examples" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Airlock Integration</strong></p>
+<ul class="simple">
+<li><p>Automated output submission</p></li>
+<li><p>Integration with approval workflows</p></li>
+<li><p>Secure file transfer protocols</p></li>
+</ul>
+</li>
+<li><p><strong>Multi-user Environments</strong></p>
+<ul class="simple">
+<li><p>Shared configuration management</p></li>
+<li><p>Collaborative analysis workflows</p></li>
+<li><p>Output tracking and versioning</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="best-practices-examples">
+<h3>Best Practices Examples<a class="headerlink" href="#best-practices-examples" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Configuration Management</strong></p>
+<ul class="simple">
+<li><p>Environment-specific settings</p></li>
+<li><p>Threshold customization</p></li>
+<li><p>Policy compliance</p></li>
+</ul>
+</li>
+<li><p><strong>Quality Assurance</strong></p>
+<ul class="simple">
+<li><p>Reproducible analysis workflows</p></li>
+<li><p>Version control integration</p></li>
+<li><p>Documentation standards</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
+<p>If you need help with any examples:</p>
+<ul class="simple">
+<li><p>Check the <a class="reference internal" href="api.html"><span class="doc">API Reference</span></a> for detailed function documentation</p></li>
+<li><p>Visit our <a class="reference external" href="https://github.com/AI-SDC/ACRO/issues">GitHub Issues</a> page</p></li>
+<li><p>Join our community discussions</p></li>
+<li><p>Contact support: <a class="reference external" href="mailto:acro-support&#37;&#52;&#48;ai-sdc&#46;org">acro-support<span>&#64;</span>ai-sdc<span>&#46;</span>org</a></p></li>
+</ul>
+</section>
+<section id="contributing-examples">
+<h2>Contributing Examples<a class="headerlink" href="#contributing-examples" title="Link to this heading">#</a></h2>
+<p>We welcome contributions of new examples and tutorials:</p>
+<ol class="arabic simple">
+<li><p>Fork the <a class="reference external" href="https://github.com/AI-SDC/ACRO-Examples">ACRO Examples Repository</a></p></li>
+<li><p>Create a new example following our template</p></li>
+<li><p>Test your example thoroughly</p></li>
+<li><p>Submit a pull request with documentation</p></li>
+</ol>
+<section id="example-template">
+<h3>Example Template<a class="headerlink" href="#example-template" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Example Title: Brief Description</span>
+
+<span class="sd">This example demonstrates [specific functionality].</span>
+
+<span class="sd">Requirements:</span>
+<span class="sd">- acro &gt;= 0.4.8</span>
+<span class="sd">- pandas &gt;= 1.5.0</span>
+
+<span class="sd">Dataset: [dataset name and source]</span>
+<span class="sd">Difficulty: [Beginner/Intermediate/Advanced]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">acro</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Example code here...</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="installation.html"><span class="doc">Installation</span></a> - Installation instructions</p></li>
+<li><p><a class="reference internal" href="api.html"><span class="doc">API Reference</span></a> - Complete API reference</p></li>
+<li><p><a class="reference internal" href="introduction.html"><span class="doc">Welcome to ACRO</span></a> - Getting started guide</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="user_guide/configuration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Configuration</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="examples/quickstart.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quick Start</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-notebooks">Interactive Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-jupyter-notebooks">Python Jupyter Notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r-notebooks">R Notebooks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-tutorials">Video Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-datasets">Example Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#charities-dataset">Charities Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nursery-dataset">Nursery Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code-repository">Sample Code Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common Use Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-workflow-examples">Research Workflow Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tre-integration-examples">TRE Integration Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-examples">Best Practices Examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-examples">Contributing Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-template">Example Template</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/examples.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, ACRO Project Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

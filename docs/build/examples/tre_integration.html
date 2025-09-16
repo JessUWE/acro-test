@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TRE Integration &#8212; ACRO 0.4.9 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=22ca553c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=ebe9904d"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/tre_integration';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Reference" href="../api.html" />
+    <link rel="prev" title="Reviewer Workflows" href="reviewer_workflows.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ACRO 0.4.9 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../introduction.html">
+    Welcome to ACRO
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../acro.html">
+    ACRO Module
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../sacro_ml.html">
+    SACRO-ML
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../acro_r.html">
+    ACRO-R
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../sacro_viewer.html">
+    SACRO-Viewer
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../introduction.html">
+    Welcome to ACRO
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../acro.html">
+    ACRO Module
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../sacro_ml.html">
+    SACRO-ML
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../acro_r.html">
+    ACRO-R
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../sacro_viewer.html">
+    SACRO-Viewer
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_workflow.html">Basic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Analysis Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cross_tabulation.html">Cross-tabulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistical_modeling.html">Statistical Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_visualization.html">Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary_statistics.html">Summary Statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="custom_disclosure_checks.html">Custom Disclosure Checks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_processing.html">Batch Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration_workflows.html">Integration Workflows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Language-Specific Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="python_notebooks.html">Python Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r_workflows.html">R Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stata_integration.html">Stata Integration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ml_privacy_assessment.html">ML Privacy Assessment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="safe_model_export.html">Safe Model Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_privacy_training.html">Differential Privacy Training</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Output Checking</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="sacro_viewer_tutorial.html">SACRO-Viewer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reviewer_workflows.html">Reviewer Workflows</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TRE Integration</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../examples.html" class="nav-link">Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">TRE Integration</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tre-integration">
+<h1>TRE Integration<a class="headerlink" href="#tre-integration" title="Link to this heading">#</a></h1>
+<p>Integrating ACRO tools with Trusted Research Environments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section covers integration across the SACRO family of tools. For ACRO-specific examples, see <a class="reference internal" href="basic_workflow.html"><span class="doc">Basic Workflow</span></a> and <a class="reference internal" href="configuration.html"><span class="doc">Configuration</span></a>.</p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Trusted Research Environments (TREs) provide secure computing environments for working with sensitive data. The SACRO family of tools integrates seamlessly with TRE infrastructure.</p>
+</section>
+<section id="common-tre-platforms">
+<h2>Common TRE Platforms<a class="headerlink" href="#common-tre-platforms" title="Link to this heading">#</a></h2>
+<section id="airlock-systems">
+<h3>Airlock Systems<a class="headerlink" href="#airlock-systems" title="Link to this heading">#</a></h3>
+<p>Integration with airlock-based data egress systems:</p>
+<p><strong>ACRO Integration</strong>:
+* Automated output submission to airlock queues
+* Structured metadata for review processes
+* Compliance with airlock file format requirements
+* Integration with approval workflows</p>
+<p><strong>SACRO-Viewer Integration</strong>:
+* Direct connection to airlock review interfaces
+* Automated status updates and notifications
+* Secure file transfer protocols
+* Audit trail integration</p>
+<p><strong>Configuration Example</strong>:
+* Output directory mapping to airlock folders
+* Automated file naming conventions
+* Metadata tagging for review prioritization
+* Integration with institutional authentication</p>
+</section>
+<section id="cloud-based-tres">
+<h3>Cloud-Based TREs<a class="headerlink" href="#cloud-based-tres" title="Link to this heading">#</a></h3>
+<p>Integration with cloud TRE platforms:</p>
+<p><strong>AWS Integration</strong>:
+* S3 bucket integration for output storage
+* IAM role-based access control
+* CloudTrail integration for audit logging
+* Lambda functions for automated processing</p>
+<p><strong>Azure Integration</strong>:
+* Blob storage for secure file handling
+* Active Directory authentication
+* Azure Monitor for system logging
+* Function Apps for workflow automation</p>
+<p><strong>Google Cloud Integration</strong>:
+* Cloud Storage for output management
+* Identity and Access Management (IAM)
+* Cloud Logging for audit trails
+* Cloud Functions for process automation</p>
+</section>
+<section id="on-premises-tres">
+<h3>On-Premises TREs<a class="headerlink" href="#on-premises-tres" title="Link to this heading">#</a></h3>
+<p>Integration with institutional TRE infrastructure:</p>
+<p><strong>Network Integration</strong>:
+* VPN and secure network protocols
+* Firewall configuration for tool access
+* Network file system integration
+* Secure communication channels</p>
+<p><strong>Authentication Systems</strong>:
+* LDAP and Active Directory integration
+* Single Sign-On (SSO) configuration
+* Multi-factor authentication support
+* Role-based access control</p>
+<p><strong>Storage Systems</strong>:
+* Shared file system integration
+* Database connectivity options
+* Backup and archival procedures
+* Data retention policy compliance</p>
+</section>
+</section>
+<section id="automated-workflow-setup">
+<h2>Automated Workflow Setup<a class="headerlink" href="#automated-workflow-setup" title="Link to this heading">#</a></h2>
+<section id="end-to-end-automation">
+<h3>End-to-End Automation<a class="headerlink" href="#end-to-end-automation" title="Link to this heading">#</a></h3>
+<p>Complete automation of the research output workflow:</p>
+<p><strong>Stage 1: Analysis</strong>
+* ACRO performs analysis with disclosure control
+* Outputs automatically saved to designated directories
+* Metadata generated for downstream processing
+* Initial quality checks performed</p>
+<p><strong>Stage 2: Review Preparation</strong>
+* Outputs automatically submitted to review queue
+* SACRO-Viewer notified of new submissions
+* Reviewers assigned based on workload and expertise
+* Priority levels set based on output characteristics</p>
+<p><strong>Stage 3: Review Process</strong>
+* Automated pre-screening for obvious approvals/rejections
+* Human review for complex cases
+* Decision tracking and audit trail generation
+* Feedback delivery to researchers</p>
+<p><strong>Stage 4: Output Release</strong>
+* Approved outputs automatically processed for release
+* File format conversion if required
+* Secure transfer to designated locations
+* Confirmation and receipt tracking</p>
+</section>
+</section>
+<section id="configuration-management">
+<h2>Configuration Management<a class="headerlink" href="#configuration-management" title="Link to this heading">#</a></h2>
+<section id="multi-user-environment-setup">
+<h3>Multi-User Environment Setup<a class="headerlink" href="#multi-user-environment-setup" title="Link to this heading">#</a></h3>
+<p>Configuring SACRO tools for shared environments:</p>
+<p><strong>User Management</strong>:
+* Individual user accounts and profiles
+* Group-based permissions and access control
+* Shared configuration templates
+* Personal workspace allocation</p>
+<p><strong>Resource Management</strong>:
+* Compute resource allocation and limits
+* Storage quota management
+* Network bandwidth considerations
+* Concurrent user support</p>
+<p><strong>Policy Enforcement</strong>:
+* Institutional disclosure control policies
+* Automated policy compliance checking
+* Custom rule implementation
+* Exception handling procedures</p>
+</section>
+</section>
+<section id="compliance-and-audit">
+<h2>Compliance and Audit<a class="headerlink" href="#compliance-and-audit" title="Link to this heading">#</a></h2>
+<section id="regulatory-compliance">
+<h3>Regulatory Compliance<a class="headerlink" href="#regulatory-compliance" title="Link to this heading">#</a></h3>
+<p>Meeting regulatory requirements in TRE environments:</p>
+<p><strong>GDPR Compliance</strong>:
+* Data processing record maintenance
+* Privacy impact assessment integration
+* Data subject rights management
+* Cross-border transfer controls</p>
+<p><strong>HIPAA Compliance</strong> (for health data):
+* Access logging and monitoring
+* Encryption requirements compliance
+* Audit trail maintenance
+* Breach notification procedures</p>
+<p><strong>Sector-Specific Regulations</strong>:
+* Financial services compliance (PCI DSS, etc.)
+* Government data handling requirements
+* Academic research ethics compliance
+* International data sharing agreements</p>
+</section>
+<section id="audit-trail-management">
+<h3>Audit Trail Management<a class="headerlink" href="#audit-trail-management" title="Link to this heading">#</a></h3>
+<p>Comprehensive logging and monitoring:</p>
+<p><strong>System Logs</strong>:
+* User access and activity logging
+* System performance monitoring
+* Error and exception tracking
+* Security event logging</p>
+<p><strong>Process Logs</strong>:
+* Analysis workflow tracking
+* Review decision documentation
+* Output release authorization
+* Policy compliance verification</p>
+<p><strong>Data Logs</strong>:
+* Data access and usage tracking
+* Output generation and modification
+* File transfer and sharing records
+* Retention and disposal documentation</p>
+</section>
+</section>
+<section id="performance-optimization">
+<h2>Performance Optimization<a class="headerlink" href="#performance-optimization" title="Link to this heading">#</a></h2>
+<section id="scalability-considerations">
+<h3>Scalability Considerations<a class="headerlink" href="#scalability-considerations" title="Link to this heading">#</a></h3>
+<p>Optimizing SACRO tools for large-scale TRE deployment:</p>
+<p><strong>Compute Optimization</strong>:
+* Parallel processing configuration
+* Resource allocation strategies
+* Load balancing implementation
+* Performance monitoring and tuning</p>
+<p><strong>Storage Optimization</strong>:
+* Efficient file organization
+* Compression and archival strategies
+* Database optimization techniques
+* Backup and recovery procedures</p>
+<p><strong>Network Optimization</strong>:
+* Bandwidth management
+* Latency reduction techniques
+* Secure communication protocols
+* Content delivery optimization</p>
+</section>
+</section>
+<section id="monitoring-and-maintenance">
+<h2>Monitoring and Maintenance<a class="headerlink" href="#monitoring-and-maintenance" title="Link to this heading">#</a></h2>
+<section id="system-health-monitoring">
+<h3>System Health Monitoring<a class="headerlink" href="#system-health-monitoring" title="Link to this heading">#</a></h3>
+<p>Ensuring reliable operation in TRE environments:</p>
+<p><strong>Performance Metrics</strong>:
+* System resource utilization
+* Response time monitoring
+* Throughput measurement
+* Error rate tracking</p>
+<p><strong>Availability Monitoring</strong>:
+* Service uptime tracking
+* Failover mechanism testing
+* Disaster recovery procedures
+* Business continuity planning</p>
+<p><strong>Security Monitoring</strong>:
+* Intrusion detection systems
+* Vulnerability assessment
+* Security patch management
+* Incident response procedures</p>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
+<section id="implementation-guidelines">
+<h3>Implementation Guidelines<a class="headerlink" href="#implementation-guidelines" title="Link to this heading">#</a></h3>
+<p>Recommended approaches for TRE integration:</p>
+<p><strong>Planning Phase</strong>:
+* Comprehensive requirements analysis
+* Stakeholder engagement and buy-in
+* Risk assessment and mitigation planning
+* Timeline and resource allocation</p>
+<p><strong>Implementation Phase</strong>:
+* Phased deployment approach
+* Extensive testing and validation
+* User training and support
+* Documentation and knowledge transfer</p>
+<p><strong>Operational Phase</strong>:
+* Continuous monitoring and optimization
+* Regular security assessments
+* User feedback collection and response
+* System updates and maintenance</p>
+<p><strong>Evaluation Phase</strong>:
+* Performance review and analysis
+* Cost-benefit assessment
+* Lessons learned documentation
+* Future improvement planning</p>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<section id="common-integration-issues">
+<h3>Common Integration Issues<a class="headerlink" href="#common-integration-issues" title="Link to this heading">#</a></h3>
+<p>Typical challenges and solutions:</p>
+<p><strong>Authentication Problems</strong>:
+* SSO configuration issues
+* Certificate management problems
+* Permission and access control errors
+* Multi-factor authentication failures</p>
+<p><strong>Network Connectivity</strong>:
+* Firewall and security group configuration
+* VPN connection problems
+* DNS resolution issues
+* Bandwidth and latency problems</p>
+<p><strong>Data Integration</strong>:
+* File format compatibility issues
+* Database connection problems
+* Data synchronization challenges
+* Backup and recovery failures</p>
+<p><strong>Performance Issues</strong>:
+* Resource allocation problems
+* Scalability limitations
+* Configuration optimization needs
+* Monitoring and alerting gaps</p>
+</section>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../sacro_viewer.html"><span class="doc">SACRO-Viewer</span></a> - SACRO-Viewer documentation</p></li>
+<li><p><a class="reference internal" href="configuration.html"><span class="doc">Configuration</span></a> - ACRO configuration guide</p></li>
+<li><p><a class="reference internal" href="reviewer_workflows.html"><span class="doc">Reviewer Workflows</span></a> - Review process procedures</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reviewer_workflows.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reviewer Workflows</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-tre-platforms">Common TRE Platforms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#airlock-systems">Airlock Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-based-tres">Cloud-Based TREs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-premises-tres">On-Premises TREs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-workflow-setup">Automated Workflow Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#end-to-end-automation">End-to-End Automation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-management">Configuration Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-user-environment-setup">Multi-User Environment Setup</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compliance-and-audit">Compliance and Audit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulatory-compliance">Regulatory Compliance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#audit-trail-management">Audit Trail Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-optimization">Performance Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalability-considerations">Scalability Considerations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-and-maintenance">Monitoring and Maintenance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-health-monitoring">System Health Monitoring</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-guidelines">Implementation Guidelines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-integration-issues">Common Integration Issues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/examples/tre_integration.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, ACRO Project Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
