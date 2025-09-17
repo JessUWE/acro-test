@@ -104,8 +104,8 @@ ACRO implements a principles-based statistical disclosure control (SDC) methodol
 * Reports reasons for applying SDC
 * Produces summary documents for output checkers
 
-Quick Example
-=============
+Example
+=======
 
 .. code-block:: python
 
