@@ -9,7 +9,6 @@ This section provides comprehensive examples and tutorials for using the ACRO fa
    :caption: Getting Started
 
    examples/quickstart
-   examples/basic_workflow
    examples/configuration
 
 .. toctree::
