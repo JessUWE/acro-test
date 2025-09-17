@@ -53,8 +53,10 @@ System-level configuration:
 Safety Parameters
 =================
 
-Threshold Settings
-------------------
+TRE Risk Appetite Settings
+--------------------------
+
+*These settings are controlled by TRE administrators and cannot be changed by researchers.*
 
 **safe_threshold** (default: 10)
    Minimum number of observations required in table cells
@@ -71,17 +73,19 @@ Threshold Settings
 **safe_p_percent** (default: 0.1)
    P-percent rule threshold for concentration
 
-Behavioral Settings
--------------------
-
-**suppress** (default: false)
-   Whether to suppress unsafe outputs automatically
-
 **check_missing_values** (default: true)
    Include missing values in safety calculations
 
 **survival_safe_threshold** (default: 10)
    Minimum observations for survival analysis outputs
+
+Behavioral Settings
+-------------------
+
+*These settings can be controlled by researchers to choose how they want to mitigate risk.*
+
+**suppress** (default: false)
+   Whether to suppress unsafe outputs automatically. Additional mitigation options like rounding will be added in future versions.
 
 Output Settings
 ===============
