@@ -13,12 +13,12 @@ release = __version__
 
 
 extensions = [
-    "numpydoc",
     "sphinx.ext.autodoc",
     "sphinx.ext.doctest",
-    "sphinx.ext.imgconverter",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
+    "numpydoc",
+    "nbsphinx",
     "sphinx_autopackagesummary",
     "sphinx_issues",
     "sphinx_prompt",
@@ -61,4 +61,13 @@ html_theme_options = {
     "show_toc_level": 2,
     "collapse_navigation": False,
     "navigation_with_keys": True
+}
+
+
+nbsphinx_execute = 'never'
+nbsphinx_allow_errors = True
+
+
+source_suffix = {
+    '.rst': None,
 }

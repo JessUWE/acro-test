@@ -10,6 +10,7 @@ This section provides comprehensive examples and tutorials for using the ACRO fa
 
    examples/quickstart
    examples/configuration
+   notebook_examples
 
 .. toctree::
    :maxdepth: 2
