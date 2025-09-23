@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Differential Privacy Training &#8212; ACRO 0.4.9 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=22ca553c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=f7233efc"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/differential_privacy_training';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ACRO 0.4.9 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../introduction.html">
+    Welcome to ACRO
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../support.html">
+    What ACRO Supports
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Examples
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../acro.html">
+    ACRO Module
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../sacro_ml.html">
+    SACRO-ML
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../acro_r.html">
+    ACRO-R
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../sacro_viewer.html">
+    SACRO-Viewer
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../introduction.html">
+    Welcome to ACRO
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../support.html">
+    What ACRO Supports
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../acro.html">
+    ACRO Module
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../sacro_ml.html">
+    SACRO-ML
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../acro_r.html">
+    ACRO-R
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../sacro_viewer.html">
+    SACRO-Viewer
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Differential Privacy Training</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="differential-privacy-training">
+<h1>Differential Privacy Training<a class="headerlink" href="#differential-privacy-training" title="Link to this heading">#</a></h1>
+<p>Training machine learning models with differential privacy using SACRO-ML.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section covers SACRO-ML functionality. For ACRO-specific examples, see <a class="reference internal" href="statistical_modeling.html"><span class="doc">Statistical Modeling</span></a> and <span class="xref std std-doc">basic_workflow</span>.</p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Differential privacy (DP) provides mathematical guarantees about privacy protection during machine learning model training.</p>
+</section>
+<section id="core-concepts">
+<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading">#</a></h2>
+<section id="differential-privacy-definition">
+<h3>Differential Privacy Definition<a class="headerlink" href="#differential-privacy-definition" title="Link to this heading">#</a></h3>
+<p>A randomized algorithm satisfies (ε, δ)-differential privacy if for all datasets D and D’ differing by one record, and all possible outputs S:</p>
+<p>Pr[Algorithm(D) ∈ S] ≤ exp(ε) × Pr[Algorithm(D’) ∈ S] + δ</p>
+</section>
+<section id="privacy-parameters">
+<h3>Privacy Parameters<a class="headerlink" href="#privacy-parameters" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>ε (epsilon)</strong>: Privacy budget - smaller values provide stronger privacy</p></li>
+<li><p><strong>δ (delta)</strong>: Failure probability - typically very small (e.g., 10^-5)</p></li>
+<li><p><strong>Sensitivity</strong>: Maximum change in output from changing one input record</p></li>
+</ul>
+</section>
+</section>
+<section id="training-techniques">
+<h2>Training Techniques<a class="headerlink" href="#training-techniques" title="Link to this heading">#</a></h2>
+<section id="dp-sgd-differentially-private-stochastic-gradient-descent">
+<h3>DP-SGD (Differentially Private Stochastic Gradient Descent)<a class="headerlink" href="#dp-sgd-differentially-private-stochastic-gradient-descent" title="Link to this heading">#</a></h3>
+<p>The standard approach for training neural networks with differential privacy:</p>
+<ol class="arabic simple">
+<li><p><strong>Gradient Clipping</strong>: Limit the influence of any single training example</p></li>
+<li><p><strong>Noise Addition</strong>: Add calibrated noise to gradients</p></li>
+<li><p><strong>Privacy Accounting</strong>: Track cumulative privacy loss across training steps</p></li>
+</ol>
+</section>
+<section id="private-aggregation">
+<h3>Private Aggregation<a class="headerlink" href="#private-aggregation" title="Link to this heading">#</a></h3>
+<p>Techniques for combining model updates while preserving privacy:</p>
+<ul class="simple">
+<li><p><strong>Secure aggregation protocols</strong></p></li>
+<li><p><strong>Federated learning with DP</strong></p></li>
+<li><p><strong>Private ensemble methods</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="utility-privacy-trade-offs">
+<h2>Utility-Privacy Trade-offs<a class="headerlink" href="#utility-privacy-trade-offs" title="Link to this heading">#</a></h2>
+<section id="balancing-model-performance-and-privacy">
+<h3>Balancing Model Performance and Privacy<a class="headerlink" href="#balancing-model-performance-and-privacy" title="Link to this heading">#</a></h3>
+<p>Key considerations when training with differential privacy:</p>
+<ul class="simple">
+<li><p><strong>Privacy Budget Allocation</strong>: How to distribute ε across training steps</p></li>
+<li><p><strong>Hyperparameter Tuning</strong>: Adapting learning rates and batch sizes</p></li>
+<li><p><strong>Architecture Choices</strong>: Model designs that work well with DP</p></li>
+<li><p><strong>Evaluation Strategies</strong>: Measuring both utility and privacy</p></li>
+</ul>
+</section>
+</section>
+<section id="framework-integration">
+<h2>Framework Integration<a class="headerlink" href="#framework-integration" title="Link to this heading">#</a></h2>
+<p>SACRO-ML provides DP training integration with popular frameworks:</p>
+<section id="pytorch-integration">
+<h3>PyTorch Integration<a class="headerlink" href="#pytorch-integration" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Opacus library integration</p></li>
+<li><p>Custom DP optimizers</p></li>
+<li><p>Privacy accounting tools</p></li>
+<li><p>Model validation utilities</p></li>
+</ul>
+</section>
+<section id="tensorflow-integration">
+<h3>TensorFlow Integration<a class="headerlink" href="#tensorflow-integration" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>TensorFlow Privacy integration</p></li>
+<li><p>DP-SGD implementations</p></li>
+<li><p>Privacy loss tracking</p></li>
+<li><p>Secure model checkpointing</p></li>
+</ul>
+</section>
+<section id="scikit-learn-integration">
+<h3>Scikit-learn Integration<a class="headerlink" href="#scikit-learn-integration" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>DP versions of common algorithms</p></li>
+<li><p>Private feature selection</p></li>
+<li><p>Cross-validation with privacy</p></li>
+<li><p>Model evaluation tools</p></li>
+</ul>
+</section>
+</section>
+<section id="implementation-guidelines">
+<h2>Implementation Guidelines<a class="headerlink" href="#implementation-guidelines" title="Link to this heading">#</a></h2>
+<section id="privacy-budget-management">
+<h3>Privacy Budget Management<a class="headerlink" href="#privacy-budget-management" title="Link to this heading">#</a></h3>
+<p>Best practices for managing privacy budgets:</p>
+<ol class="arabic simple">
+<li><p><strong>Set Overall Budget</strong>: Determine total ε for the project</p></li>
+<li><p><strong>Allocate Across Tasks</strong>: Distribute budget between training, validation, testing</p></li>
+<li><p><strong>Track Consumption</strong>: Monitor privacy expenditure during training</p></li>
+<li><p><strong>Reserve Budget</strong>: Keep some budget for model evaluation</p></li>
+</ol>
+</section>
+<section id="model-architecture-considerations">
+<h3>Model Architecture Considerations<a class="headerlink" href="#model-architecture-considerations" title="Link to this heading">#</a></h3>
+<p>Design choices that improve DP training:</p>
+<ul class="simple">
+<li><p><strong>Smaller Models</strong>: Often work better with privacy constraints</p></li>
+<li><p><strong>Batch Normalization</strong>: Can conflict with DP - consider alternatives</p></li>
+<li><p><strong>Activation Functions</strong>: Some work better with gradient clipping</p></li>
+<li><p><strong>Regularization</strong>: Important for preventing overfitting with noise</p></li>
+</ul>
+</section>
+<section id="hyperparameter-tuning">
+<h3>Hyperparameter Tuning<a class="headerlink" href="#hyperparameter-tuning" title="Link to this heading">#</a></h3>
+<p>Adapting standard ML practices for DP:</p>
+<ul class="simple">
+<li><p><strong>Learning Rate</strong>: Often needs to be higher to overcome noise</p></li>
+<li><p><strong>Batch Size</strong>: Larger batches can improve privacy-utility trade-off</p></li>
+<li><p><strong>Clipping Norm</strong>: Critical parameter for gradient clipping</p></li>
+<li><p><strong>Noise Multiplier</strong>: Controls the amount of noise added</p></li>
+</ul>
+</section>
+</section>
+<section id="installation-and-usage">
+<h2>Installation and Usage<a class="headerlink" href="#installation-and-usage" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sacro-ml
+</pre></div>
+</div>
+<p>For detailed implementation examples, tutorials, and API documentation, see the <a class="reference internal" href="../sacro_ml.html"><span class="doc">SACRO-ML</span></a> documentation.</p>
+</section>
+<section id="evaluation-and-validation">
+<h2>Evaluation and Validation<a class="headerlink" href="#evaluation-and-validation" title="Link to this heading">#</a></h2>
+<section id="measuring-privacy-and-utility">
+<h3>Measuring Privacy and Utility<a class="headerlink" href="#measuring-privacy-and-utility" title="Link to this heading">#</a></h3>
+<p>Tools and techniques for evaluating DP-trained models:</p>
+<ul class="simple">
+<li><p><strong>Privacy auditing</strong>: Empirical privacy loss measurement</p></li>
+<li><p><strong>Membership inference attacks</strong>: Testing privacy in practice</p></li>
+<li><p><strong>Utility metrics</strong>: Standard ML evaluation adapted for DP</p></li>
+<li><p><strong>Privacy-utility curves</strong>: Visualizing trade-offs</p></li>
+</ul>
+</section>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../sacro_ml.html"><span class="doc">SACRO-ML</span></a> - Complete SACRO-ML documentation</p></li>
+<li><p><a class="reference internal" href="ml_privacy_assessment.html"><span class="doc">ML Privacy Assessment</span></a> - Privacy risk assessment tools</p></li>
+<li><p><a class="reference internal" href="safe_model_export.html"><span class="doc">Safe Model Export</span></a> - Safe model sharing procedures</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-concepts">Core Concepts</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-privacy-definition">Differential Privacy Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-parameters">Privacy Parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-techniques">Training Techniques</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dp-sgd-differentially-private-stochastic-gradient-descent">DP-SGD (Differentially Private Stochastic Gradient Descent)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-aggregation">Private Aggregation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-privacy-trade-offs">Utility-Privacy Trade-offs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balancing-model-performance-and-privacy">Balancing Model Performance and Privacy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-integration">Framework Integration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-integration">PyTorch Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow-integration">TensorFlow Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn-integration">Scikit-learn Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-guidelines">Implementation Guidelines</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-budget-management">Privacy Budget Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-architecture-considerations">Model Architecture Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparameter-tuning">Hyperparameter Tuning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-usage">Installation and Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-and-validation">Evaluation and Validation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-privacy-and-utility">Measuring Privacy and Utility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/examples/differential_privacy_training.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, ACRO Project Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
